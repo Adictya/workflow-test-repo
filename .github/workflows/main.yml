@@ -3,7 +3,9 @@ name: Sync
   push:
     branches:
       - master
-  labelSync:
+
+jobs:
+  auto-pr:
     name: sync-label-dashboard
     runs-on: ubuntu-latest
     steps:
