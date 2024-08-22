@@ -14,16 +14,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: pull-request
-        uses: diillson/auto-pull-request@v1.0.1
-        with:
-          destination_branch: "new-main"
-
       - name: Create pull request
         uses: thomaseizinger/create-pull-request@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          head: master
+          head: ${{ github.ref }}
           base: new-main
           title: "Auto PR: main to label-dashboard-init"
 
