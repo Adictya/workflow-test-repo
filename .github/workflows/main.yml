@@ -17,7 +17,7 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.TEST }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           branch: auto-pr-main-to-label-dashboard
           base: new-main
           title: 'Auto PR: main to label-dashboard-init'
