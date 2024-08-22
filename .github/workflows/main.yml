@@ -18,7 +18,7 @@ jobs:
         uses: thomaseizinger/create-pull-request@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          head: ${{ github.ref }}
+          head: master
           base: new-main
           title: "Auto PR: main to label-dashboard-init"
 
