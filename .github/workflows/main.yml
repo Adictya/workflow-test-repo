@@ -14,18 +14,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v5
+
+      - name: Actually Checkout repository
+        uses: desbravacloud/action-create-pull-requests@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: auto-pr-main-to-label-dashboard
-          base: new-main
-          title: 'Auto PR: main to label-dashboard-init'
-          body: |
+          origin-branch: 'main'
+          target-branch: 'new-main'
+          custom-title: 'Auto PR: main to label-dashboard-init'
+          custom-body: |
             This is an automated pull request to merge changes from `main` into `label-dashboard-init`.
             
             Please review the changes and merge if appropriate.
-          labels: |
-            automated
-            sync
-          draft: false
+
+      # - name: Create Pull Request
+      #   uses: peter-evans/create-pull-request@v5
+      #   with:
+      #     token: ${{ secrets.GITHUB_TOKEN }}
+      #     branch: auto-pr-main-to-label-dashboard
+      #     base: new-main
+      #     title: 'Auto PR: main to label-dashboard-init'
+      #     body: |
+      #       This is an automated pull request to merge changes from `main` into `label-dashboard-init`.
+      #
+      #       Please review the changes and merge if appropriate.
+      #     labels: |
+      #       automated
+      #       sync
+      #     draft: false
